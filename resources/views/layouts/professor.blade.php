@@ -1,4 +1,4 @@
-<!-- resources/views/layouts/student.blade.php -->
+<!-- resources/views/layouts/professor.blade.php -->
 
 @extends('layouts.base')
 

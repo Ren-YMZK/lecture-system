@@ -70,6 +70,7 @@ Route::middleware(['auth'])->prefix('professor')->name('professor.')->group(func
     Route::delete('/assignments/{assignment}', [ProfessorAssignmentController::class, 'destroy'])->name('assignments.destroy');
     Route::get('/assignments/{assignment}/submissions', [App\Http\Controllers\Professor\SubmissionController::class, 'index'])->name('submissions.index');
     Route::post('/assignments/{assignment}/submit', [App\Http\Controllers\Student\AssignmentController::class, 'submit'])->name('assignments.submit');
+    Route::put('/submissions/{submission}/score', [App\Http\Controllers\Professor\SubmissionController::class, 'score'])->name('submissions.score');
 });
 
 

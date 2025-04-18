@@ -18,4 +18,9 @@ class Submission extends Model
     {
         return $this->belongsTo(\App\Models\User::class);
     }
+
+    public function assignment()
+    {
+        return $this->belongsTo(\App\Models\Assignment::class);
+    }
 }

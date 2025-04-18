@@ -1,19 +1,23 @@
-<!-- resources/views/professor/courses/create.blade.php -->
-@extends('layouts.student')
+@extends('layouts.professor')
 
 @section('content')
-    <h1>講義作成</h1>
+    <h1 class="text-2xl font-bold mb-4">講義作成</h1>
 
-    <form action="{{ route('professor.courses.store') }}" method="POST">
+    <form action="{{ route('professor.courses.store') }}" method="POST" class="space-y-4">
         @csrf
+
         <div>
-            <label>タイトル:</label>
-            <input type="text" name="title" required>
+            <label class="block font-semibold mb-1">タイトル:</label>
+            <input type="text" name="title" required class="w-full border border-gray-300 rounded p-2">
         </div>
+
         <div>
-            <label>説明:</label>
-            <textarea name="description"></textarea>
+            <label class="block font-semibold mb-1">説明:</label>
+            <textarea name="description" class="w-full border border-gray-300 rounded p-2"></textarea>
         </div>
-        <button type="submit">作成</button>
+
+        <button type="submit" class="bg-blue-600 text-white px-4 py-2 rounded hover:bg-blue-700">
+            作成
+        </button>
     </form>
 @endsection

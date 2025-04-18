@@ -24,7 +24,12 @@ class AssignmentController extends Controller
     public function show($id)
     {
         $assignment = Assignment::findOrFail($id);
-        return view('student.assignments.show', compact('assignment'));
+
+        $submission = Submission::where('assignment_id', $id)
+            ->where('user_id', Auth::id())
+            ->first();
+
+        return view('student.assignments.show', compact('assignment', 'submission'));
     }
 
     public function submit(Request $request, $assignmentId)
@@ -36,7 +41,6 @@ class AssignmentController extends Controller
 
         // ✅ ファイルを public/submissions に保存
         $storedPath = $request->file('file')->store('public/submissions');
-        \Log::info('ファイル保存テスト: ' . $storedPath);
 
 
         // ✅ 'public/' を取り除いて Web からアクセスできる形式に
